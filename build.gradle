@@ -1,0 +1,59 @@
+plugins {
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.5'
+	id 'org.jetbrains.kotlin.plugin.jpa' version '1.9.24'
+	id 'org.jetbrains.kotlin.jvm' version '1.9.24'
+	id 'org.jetbrains.kotlin.plugin.spring' version '1.9.24'
+}
+
+group = 'com.avtdr'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+	implementation 'org.jetbrains.kotlin:kotlin-reflect'
+	implementation 'org.liquibase:liquibase-core'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:postgresql'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.hibernate:hibernate-spatial:6.5.2.Final'
+	implementation 'jakarta.validation:jakarta.validation-api'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
+	implementation 'org.geotools:gt-main:29.5'
+	implementation 'com.graphhopper.external:jackson-datatype-jts:2.14'
+}
+
+kotlin {
+	compilerOptions {
+		freeCompilerArgs.addAll '-Xjsr305=strict'
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
