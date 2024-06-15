@@ -12,12 +12,12 @@ import java.time.ZonedDateTime
 class Device(
     @Id
     @Column(name = "device_id")
-    private var deviceId: String,
+    var deviceId: String,
 
     @NotNull
     @Column(name = "import_date")
-    private var importDate: ZonedDateTime = ZonedDateTime.now(),
+    var importDate: ZonedDateTime = ZonedDateTime.now(),
 
     @Column(name = "description")
-    private var description: String
+    var description: String
 )

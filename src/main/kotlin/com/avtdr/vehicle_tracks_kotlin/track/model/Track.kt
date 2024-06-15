@@ -11,17 +11,17 @@ class Track(
     @Id
     @Column(name = "track_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private var trackId: Long,
+    var trackId: Long,
 
     @NotNull
     @Column(name = "video_id", unique = true)
-    private var videoId: Long,
+    var videoId: Long,
 
     @NotNull
     @Column(name = "video_creation_date")
-    private var videoCreationDate: ZonedDateTime,
+    var videoCreationDate: ZonedDateTime,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "device_id", referencedColumnName = "device_id")
-    private var device: Device
+    var device: Device
 )

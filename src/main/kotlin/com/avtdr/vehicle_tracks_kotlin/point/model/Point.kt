@@ -11,7 +11,7 @@ class Point(
     @Id
     @Column(name = "point_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var pointId: Long,
+   var pointId: Long,
     @NotNull
     @Column(name = "video_id")
     var videoId: Long,
