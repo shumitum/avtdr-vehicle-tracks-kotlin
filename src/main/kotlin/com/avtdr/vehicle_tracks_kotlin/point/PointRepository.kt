@@ -18,9 +18,9 @@ interface PointRepository : JpaRepository<Point, Long> {
                 "and (cast(:rangeEnd as java.time.ZonedDateTime) is NULL or p.pointDateTime < :rangeEnd)"
     )
     fun findTrackPoints(
-        @Param("deviceId") deviceId: String,
-        @Param("rangeStart") rangeStart: ZonedDateTime,
-        @Param("rangeEnd") rangeEnd: ZonedDateTime,
+        @Param("deviceId") deviceId: String?,
+        @Param("rangeStart") rangeStart: ZonedDateTime?,
+        @Param("rangeEnd") rangeEnd: ZonedDateTime?,
         page: PageRequest
     ): List<Point>
 

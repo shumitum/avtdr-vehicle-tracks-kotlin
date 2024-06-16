@@ -12,11 +12,11 @@ interface TrackService {
         rangeEnd: ZonedDateTime?,
         from: Int,
         size: Int
-    ): List<Point?>
+    ): List<Point>
 
     fun getMaxVelocityPoint(deviceId: String?): MaxVelocityPointDto
 
     fun getAllTracks(): List<TrackSummary>
 
-    fun getPointsWithinRadius(lon: Double?, lat: Double?, radius: Double?): List<Point>
+    fun getPointsWithinRadius(lon: Double, lat: Double, radius: Double): List<Point>
 }
