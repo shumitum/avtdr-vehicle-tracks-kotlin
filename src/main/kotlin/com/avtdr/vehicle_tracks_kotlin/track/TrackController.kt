@@ -1,5 +1,6 @@
 package com.avtdr.vehicle_tracks_kotlin.track
 
+import com.avtdr.vehicle_tracks_kotlin.point.dto.MaxVelocityPointDto
 import com.avtdr.vehicle_tracks_kotlin.point.model.Point
 import com.avtdr.vehicle_tracks_kotlin.track.dto.TrackSummary
 import com.avtdr.vehicle_tracks_kotlin.track.validation.TimeValidationService
@@ -47,6 +48,16 @@ class TrackController(
         )
         timeValidationService.checkStartTimeIsBeforeEndTime(rangeStart, rangeEnd)
         return trackService.getTrackPoints(deviceId, rangeStart, rangeEnd, from, size)
+    }
+
+    @GetMapping("/device/{deviceId}/max-velocity-point")
+    @ResponseStatus(HttpStatus.OK)
+    fun getMaxVelocityPoint(
+        @Parameter(description = "ID устройства", example = "32e59c906a958812")
+        @PathVariable("deviceId") deviceId: String
+    ): MaxVelocityPointDto {
+        log.info("Запрос на получение точки с максимальной скоростью устройства с ID=$deviceId")
+        return trackService.getMaxVelocityPoint(deviceId)
     }
 
     @GetMapping("/all")

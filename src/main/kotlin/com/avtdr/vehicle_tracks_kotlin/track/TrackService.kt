@@ -14,7 +14,7 @@ interface TrackService {
         size: Int
     ): List<Point>
 
-    fun getMaxVelocityPoint(deviceId: String?): MaxVelocityPointDto
+    fun getMaxVelocityPoint(deviceId: String): MaxVelocityPointDto
 
     fun getAllTracks(): List<TrackSummary>
 

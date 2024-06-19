@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import java.time.ZonedDateTime
-import java.util.*
 
 interface PointRepository : JpaRepository<Point, Long> {
     @Query(
@@ -31,7 +30,7 @@ interface PointRepository : JpaRepository<Point, Long> {
                 "left join Track as t on p.videoId = t.videoId " +
                 "where (t.device.deviceId = :deviceId)))"
     )
-    fun findMaxVelocityPointByDeviceId(@Param("deviceId") deviceId: String): Optional<MaxVelocityPointDto>
+    fun findMaxVelocityPointByDeviceId(@Param("deviceId") deviceId: String): MaxVelocityPointDto?
 
     @Query(
         value = "select track_id as trackId, p.video_id as videoId, " +

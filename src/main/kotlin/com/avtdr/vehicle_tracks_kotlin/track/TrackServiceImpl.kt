@@ -32,8 +32,10 @@ class TrackServiceImpl(
     }
 
     @Transactional(readOnly = true)
-    override fun getMaxVelocityPoint(deviceId: String?): MaxVelocityPointDto {
-        TODO("Not yet implemented")
+    override fun getMaxVelocityPoint(deviceId: String): MaxVelocityPointDto {
+        deviceService.checkDeviceExistence(deviceId)
+        return pointRepository.findMaxVelocityPointByDeviceId(deviceId)
+            ?: throw NoSuchElementException("Данные по скорости для устройства с deviceID=$deviceId отсутствуют")
     }
 
     @Transactional(readOnly = true)
