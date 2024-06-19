@@ -1,6 +1,6 @@
-package com.avtdr.vehicle_tracks_kotlin.track.model
+package com.avtdr.vehicle_tracks_kotlin.track.entity
 
-import com.avtdr.vehicle_tracks_kotlin.device.Device
+import com.avtdr.vehicle_tracks_kotlin.device.entity.Device
 import jakarta.persistence.*
 import jakarta.validation.constraints.NotNull
 import java.time.ZonedDateTime

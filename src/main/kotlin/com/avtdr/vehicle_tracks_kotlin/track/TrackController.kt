@@ -1,7 +1,7 @@
 package com.avtdr.vehicle_tracks_kotlin.track
 
 import com.avtdr.vehicle_tracks_kotlin.point.dto.MaxVelocityPointDto
-import com.avtdr.vehicle_tracks_kotlin.point.model.Point
+import com.avtdr.vehicle_tracks_kotlin.point.entity.Point
 import com.avtdr.vehicle_tracks_kotlin.track.dto.TrackSummary
 import com.avtdr.vehicle_tracks_kotlin.track.validation.TimeValidationService
 import io.swagger.v3.oas.annotations.Operation
@@ -23,8 +23,8 @@ import java.time.ZonedDateTime
 @RequestMapping("/tracks")
 @Tag(name = "ТРЕКИ ТРАНСПОРТНЫХ СРЕДСТВ", description = "API для работы с треками движения транспортных средств")
 class TrackController(
-    val trackService: TrackService,
-    val timeValidationService: TimeValidationService
+    private val trackService: TrackService,
+    private val timeValidationService: TimeValidationService
 ) {
     private val log: Logger = LoggerFactory.getLogger(this::class.java)
 
@@ -83,5 +83,4 @@ class TrackController(
     ): List<Point> {
         return trackService.getPointsWithinRadius(lon, lat, radius)
     }
-
 }

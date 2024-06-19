@@ -1,4 +1,4 @@
-package com.avtdr.vehicle_tracks_kotlin.point.model
+package com.avtdr.vehicle_tracks_kotlin.point.entity
 
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.persistence.*

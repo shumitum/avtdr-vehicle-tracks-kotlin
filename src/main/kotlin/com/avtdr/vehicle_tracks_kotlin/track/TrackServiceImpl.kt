@@ -3,7 +3,7 @@ package com.avtdr.vehicle_tracks_kotlin.track
 import com.avtdr.vehicle_tracks_kotlin.device.DeviceService
 import com.avtdr.vehicle_tracks_kotlin.point.PointRepository
 import com.avtdr.vehicle_tracks_kotlin.point.dto.MaxVelocityPointDto
-import com.avtdr.vehicle_tracks_kotlin.point.model.Point
+import com.avtdr.vehicle_tracks_kotlin.point.entity.Point
 import com.avtdr.vehicle_tracks_kotlin.track.dto.TrackSummary
 import com.avtdr.vehicle_tracks_kotlin.utils.PageParam
 import org.locationtech.jts.geom.Coordinate
@@ -15,8 +15,8 @@ import java.time.ZonedDateTime
 
 @Service
 class TrackServiceImpl(
-    val pointRepository: PointRepository,
-    val deviceService: DeviceService
+    private val pointRepository: PointRepository,
+    private val deviceService: DeviceService
 ) : TrackService {
 
     @Transactional(readOnly = true)

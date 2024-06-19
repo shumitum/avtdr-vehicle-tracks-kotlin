@@ -1,4 +1,4 @@
-package com.avtdr.vehicle_tracks_kotlin.device
+package com.avtdr.vehicle_tracks_kotlin.device.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

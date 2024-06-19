@@ -16,14 +16,11 @@ class ObjectMapperConfig {
 
     @Bean
     fun objectMapper(): ObjectMapper {
-        val simpleModule = SimpleModule()
-        simpleModule.addSerializer(GeometrySerializer())
         return JsonMapper.builder()
-            .addModule(simpleModule)
+            .addModule(SimpleModule().addSerializer(GeometrySerializer()))
             .addModule(JavaTimeModule()
                 .addSerializer(ZonedDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ssX"))))
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-
             .build()
     }
 }

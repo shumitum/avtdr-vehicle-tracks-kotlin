@@ -1,7 +1,7 @@
 package com.avtdr.vehicle_tracks_kotlin.track
 
 import com.avtdr.vehicle_tracks_kotlin.point.dto.MaxVelocityPointDto
-import com.avtdr.vehicle_tracks_kotlin.point.model.Point
+import com.avtdr.vehicle_tracks_kotlin.point.entity.Point
 import com.avtdr.vehicle_tracks_kotlin.track.dto.TrackSummary
 import java.time.ZonedDateTime
 

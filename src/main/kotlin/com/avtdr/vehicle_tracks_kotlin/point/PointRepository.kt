@@ -1,7 +1,7 @@
 package com.avtdr.vehicle_tracks_kotlin.point
 
 import com.avtdr.vehicle_tracks_kotlin.point.dto.MaxVelocityPointDto
-import com.avtdr.vehicle_tracks_kotlin.point.model.Point
+import com.avtdr.vehicle_tracks_kotlin.point.entity.Point
 import com.avtdr.vehicle_tracks_kotlin.track.dto.TrackSummary
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.jpa.repository.JpaRepository
@@ -52,7 +52,7 @@ interface PointRepository : JpaRepository<Point, Long> {
                 "order by track_id) as g",
         nativeQuery = true
     )
-    fun findTracksJsonRepresentation(): String
+    fun findTracksJsonRepresentation(): String?
 
     @Query(
         value = "select * from point " +

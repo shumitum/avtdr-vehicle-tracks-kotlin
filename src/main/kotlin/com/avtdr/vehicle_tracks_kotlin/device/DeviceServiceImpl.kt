@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class DeviceServiceImpl(val deviceRepository: DeviceRepository) : DeviceService {
+class DeviceServiceImpl(private val deviceRepository: DeviceRepository) : DeviceService {
 
     @Transactional(readOnly = true)
     override fun checkDeviceExistence(deviceID: String?) {
