@@ -1,6 +1,5 @@
 package com.avtdr.vehicle_tracks_kotlin.point.dto
 
-import com.fasterxml.jackson.annotation.JsonFormat
 import io.swagger.v3.oas.annotations.media.Schema
 import org.locationtech.jts.geom.Point
 import java.time.ZonedDateTime
@@ -16,10 +15,5 @@ class MaxVelocityPointDto(
     var velocity: Double,
 
     @Schema(description = "Время проезда точки", example = "2023-06-19 06:55:20Z")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_TIME_PATTERN)
     var pointDateTime: ZonedDateTime
-) {
-    companion object {
-        const val DATE_TIME_PATTERN: String = "yyyy-MM-dd HH:mm:ssX"
-    }
-}
+)

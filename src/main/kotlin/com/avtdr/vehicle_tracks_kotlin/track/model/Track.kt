@@ -11,7 +11,7 @@ class Track(
     @Id
     @Column(name = "track_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var trackId: Long,
+    var trackId: Long? = null,
 
     @NotNull
     @Column(name = "video_id", unique = true)

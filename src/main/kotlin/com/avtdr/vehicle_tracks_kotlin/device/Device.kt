@@ -12,7 +12,7 @@ import java.time.ZonedDateTime
 class Device(
     @Id
     @Column(name = "device_id")
-    var deviceId: String,
+    var deviceId: String? = null,
 
     @NotNull
     @Column(name = "import_date")
