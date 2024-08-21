@@ -46,6 +46,7 @@ dependencies {
 	implementation 'jakarta.validation:jakarta.validation-api'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-api:2.5.0'
 	//runtimeOnly 'org.springdoc:springdoc-openapi-kotlin:1.8.0'
+	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.17.2'
 	implementation 'com.graphhopper.external:jackson-datatype-jts:2.14'
 	implementation 'org.geotools:gt-main:29.5'
 	implementation 'com.sealwu.jsontokotlin:library:3.7.4'

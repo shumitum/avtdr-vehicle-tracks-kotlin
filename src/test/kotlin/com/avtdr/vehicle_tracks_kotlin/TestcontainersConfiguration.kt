@@ -9,10 +9,13 @@ import org.testcontainers.utility.DockerImageName
 @TestConfiguration(proxyBeanMethods = false)
 class TestcontainersConfiguration {
 
-	@Bean
-	@ServiceConnection
-	fun postgresContainer(): PostgreSQLContainer<*> {
-		return PostgreSQLContainer(DockerImageName.parse("postgres:latest"))
-	}
+    @Bean
+    @ServiceConnection
+    fun postGISContainer(): PostgreSQLContainer<*> {
+        return PostgreSQLContainer(
+            DockerImageName.parse("postgis/postgis:15-3.4-alpine")
+                .asCompatibleSubstituteFor("postgres")
+        )
+    }
 
 }

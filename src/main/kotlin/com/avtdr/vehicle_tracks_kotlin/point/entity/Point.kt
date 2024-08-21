@@ -12,11 +12,14 @@ class Point(
     @Column(name = "point_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var pointId: Long? = null,
+
     @NotNull
     @Column(name = "video_id")
     var videoId: Long,
+
     @Column(name = "location", columnDefinition = "geometry(Point,4326)")
     var location: org.locationtech.jts.geom.Point,
+
     @NotNull
     @Column(name = "bearing")
     @Schema(description = "Угол направления движения в градусах", example = "150.83277893066406")
