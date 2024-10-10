@@ -6,6 +6,8 @@ import com.avtdr.vehicle_tracks_kotlin.track.dto.TrackSummary
 import com.avtdr.vehicle_tracks_kotlin.track.validation.TimeValidationService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
+import io.swagger.v3.oas.annotations.responses.ApiResponse
+import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
@@ -30,6 +32,20 @@ class TrackController(
 
     @GetMapping("/points")
     @ResponseStatus(HttpStatus.OK)
+    @Operation(
+        summary = "Запрос на получение списка точек",
+        description = "Данный эндпоинт принимает ID устройства, дату и время начала и конца выборки " +
+                "(в формате - 2023-06-19T06:01:00Z) и параметры пагинации (номер страницы и кол-во элементов на ней."
+    )
+    @ApiResponses(
+        value = [ApiResponse(
+            responseCode = "400",
+            description = "Время начала выборки должны быть раньше времени конца выборки"
+        ), ApiResponse(
+            responseCode = "404",
+            description = "Устройства с указанным deviceID не существует"
+        )]
+    )
     fun getTrackPoints(
         @Parameter(description = "ID устройства", example = "32e59c906a958812")
         @RequestParam(name = "deviceId", required = false) deviceId: String?,

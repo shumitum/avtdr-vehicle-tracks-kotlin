@@ -22,16 +22,16 @@ class Point(
 
     @NotNull
     @Column(name = "bearing")
-    @Schema(description = "Угол направления движения в градусах", example = "150.83277893066406")
+    //@Schema(description = "Угол направления движения в градусах", example = "150.83277893066406")
     var bearing: Double,
 
     @NotNull
     @Column(name = "velocity")
-    @Schema(description = "Скорость транспортного средства м/c", example = "8.058734893798828")
+    //@Schema(description = "Скорость транспортного средства м/c", example = "8.058734893798828")
     var velocity: Double,
 
     @NotNull
     @Column(name = "point_datetime")
-    @Schema(description = "Время проезда точки", example = "2023-06-19 06:55:20Z")
+    //@Schema(description = "Время проезда точки", example = "2023-06-19 06:55:20Z")
     var pointDateTime: ZonedDateTime
 )

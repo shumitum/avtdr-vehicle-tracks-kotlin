@@ -9,7 +9,7 @@ import java.time.ZonedDateTime
 
 @Entity
 @Table(name = "device", schema = "public")
-class Device(
+class Device (
     @Id
     @Column(name = "device_id")
     var deviceId: String? = null,
